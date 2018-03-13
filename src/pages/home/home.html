@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar color = "primary">
+    <ion-title>
+      Reservations List
+    </ion-title>
+    <ion-buttons end>
+      <button navPush = "AddReservationPage" ion-button>
+        <ion-icon name = "add"></ion-icon>
+      </button>
+
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+ <ion-list>
+   <ion-list-header>
+     Reservations
+   </ion-list-header>
+ 
+ 
+   <ion-item *ngFor = "let reservation of reservationList$ | async"
+   detail-push navPush = "EditReservationPage"
+   [navParams]= "{reservation: reservation}">
+    {{reservation.name}}
+
+   </ion-item>
+  </ion-list>
+
+</ion-content>
