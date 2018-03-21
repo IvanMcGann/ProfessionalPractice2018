@@ -22,6 +22,7 @@ export class AddReservationPage {
     name: '',
     service: '',
     price: undefined,
+    time: undefined,
   };
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 

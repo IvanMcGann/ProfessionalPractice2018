@@ -3,5 +3,6 @@ export interface Reservation {
     name: string;
     service: string;
     price: number;
+    time: Date;
 
 }
