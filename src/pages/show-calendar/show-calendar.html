@@ -15,14 +15,21 @@
 
 <ion-content padding>
 
+
+    <ion-item *ngFor = "let reservation of reservationList$ | async"
+    detail-push navPush = "EditReservationPage"
+    [navParams]= "{reservation: reservation}">
+     {{reservation.time}}
+    </ion-item>
+    
   <ion-item>
     <ion-label>Start Date</ion-label>
-    <ion-datetime displayFormat="MMM DD, YYYY HH:mm" [(ngModel)]="calendar.startDate"></ion-datetime>
+    <ion-datetime displayFormat="MMM DD, YYYY hh A" min ="2018-04-01" max ="2020-12-31" [(ngModel)]="calendar.startDate"></ion-datetime>
   </ion-item>
 
   <ion-item>
     <ion-label>End Date</ion-label>
-    <ion-datetime displayFormat="MMM DD, YYYY HH:mm" [(ngModel)]="calendar.endDate"></ion-datetime>
+    <ion-datetime displayFormat="MMM DD, YYYY hh A" min ="2018-04-01" max ="2020-12-31" [(ngModel)]="calendar.endDate"></ion-datetime>
   </ion-item>
 
   <button ion-button block color="secondary"(click)="showSchedule(schedule)">See Schedule</button>

@@ -6,7 +6,6 @@ import { Calendar } from "../../models/calendar/calendar.model";
 @Injectable()
 export class CalendarService {
 
-    private calendarRef = this.db.list<Calendar>("reservation-list");
  
     constructor(private db: AngularFireDatabase){ }
 

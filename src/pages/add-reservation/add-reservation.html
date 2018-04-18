@@ -32,7 +32,7 @@
 
   <ion-item>
     <ion-label>Time</ion-label>
-    <ion-datetime displayFormat="MMM DD, YYYY HH:mm" [(ngModel)]="reservation.time"></ion-datetime>
+    <ion-datetime displayFormat="MMM DD, YYYY hh A" [(ngModel)]="reservation.time"></ion-datetime>
   </ion-item>
 
   <button ion-button block clear (click)="addReservation(reservation)">Add</button>

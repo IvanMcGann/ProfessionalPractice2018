@@ -33,11 +33,12 @@ export class AddReservationPage {
     console.log('ionViewDidLoad AddReservationPage');
   }
 
+
   addReservation(reservation: Reservation){
+  
     this.appointment.addReservation(reservation).then(ref =>{
     this.toast.show(`${reservation.name} added!`);
     this.navCtrl.setRoot('HomePage', {key: ref.key });
     });
   }
-
 }

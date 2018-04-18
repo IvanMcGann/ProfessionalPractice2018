@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Calendar } from '../../models/calendar/calendar.model';
+import { Reservation } from '../../models/reservation/reservation.model';
+import { Observable } from 'rxjs/Observable';
+import { ReservationListService } from '../../services/reservation-list/reservation-list.service';
 
 /**
  * Generated class for the ShowCalendarPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
 
@@ -21,12 +22,27 @@ export class ShowCalendarPage {
     endDate: undefined
   };
   
+  reservationList$: Observable<Reservation[]>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, private appointment: ReservationListService) {
+
+    this.reservationList$ = this.appointment.
+    getReservationList() //DB List
+    .snapshotChanges() //Key and Value
+    .map(changes =>{
+      return changes.map(c => ({
+        key: c.payload.key, ...c.payload.val()
+      }));
+    });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ShowCalendarPage');
+    
+
   }
 
+
+
+  //    this.navCtrl.setRoot('HomePage');
 }
