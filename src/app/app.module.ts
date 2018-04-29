@@ -9,11 +9,11 @@ import { MyApp } from './app.component';
 import { FIREBASE_CONFIG } from './firebase.credentials';
 import { ReservationListService } from '../services/reservation-list/reservation-list.service';
 import { ToastService } from '../services/toast/toast.service';
-
+import { Calendar } from '@ionic-native/calendar';
 
 @NgModule({
   declarations: [
-    MyApp
+    MyApp,    
   ],
   imports: [
     BrowserModule,
@@ -30,6 +30,7 @@ import { ToastService } from '../services/toast/toast.service';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ReservationListService, ToastService,
+    Calendar
   ]
 })
 export class AppModule {}
